@@ -2,6 +2,13 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
+import IssLocation from './components/IssLocation';
+import OpenAstronomyAPI from './components/OpenAstronomyAPI';
+import PlanetAPI from './components/PlanetAPI';
+import MoonCalcAPI from './components/MoonCalcAPI';
+import TheSolarSystemAPI from './components/TheSolarSystemAPI';
+import NasaAPI from './components/NasaAPI';
+
 function App() {
   return (
     <div className="App">
@@ -10,6 +17,12 @@ function App() {
       <h2>Develop Branch</h2>
       <h3>Max's Branch</h3>
       <h3>Shavonne's Branch</h3>
+      <IssLocation/>
+      <OpenAstronomyAPI/>
+      <PlanetAPI/>
+      <MoonCalcAPI/>
+      <TheSolarSystemAPI/>
+      <NasaAPI/>
     </div>
   );
 }
