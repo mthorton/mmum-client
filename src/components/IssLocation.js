@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 function IssLocation(){
 
-    let url = 'https://api.wheretheiss.at/v1/satellites';
+    let url = 'https://api.wheretheiss.at/v1/satellites/25544';
     const [data, setData] = useState([]);
 
     const getData = () => {
@@ -17,7 +17,7 @@ function IssLocation(){
 
     return(
         <div>
-            <button onClick={getData}>ISS Location Info</button>
+            <button onClick={getData}>ISS Location</button>
         </div>
     )
 

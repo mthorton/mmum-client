@@ -24,7 +24,7 @@ function OpenAstronomyAPI(){
     }
 
     const getSupernova = () => {
-        fetch(urlSupernova)
+        fetch(urlSupernova + 'object')
         .then(res => res.json())
         .then(json => {
             console.log(json);

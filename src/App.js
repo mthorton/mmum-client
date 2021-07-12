@@ -8,6 +8,7 @@ import PlanetAPI from './components/PlanetAPI';
 import MoonCalcAPI from './components/MoonCalcAPI';
 import TheSolarSystemAPI from './components/TheSolarSystemAPI';
 import NasaAPI from './components/NasaAPI';
+import GeoLocation from './components/GeoLocation';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <h2>Develop Branch</h2>
       <h3>Max's Branch</h3>
       <h3>Shavonne's Branch</h3>
+      <GeoLocation/>
       <IssLocation/>
       <OpenAstronomyAPI/>
       <PlanetAPI/>
