@@ -33,7 +33,35 @@ function userSignUp() {
 };
 
 function userLogin() {
-    console.log('userLogin Function Called')
+    let userName = document.getElementById("userSignup").value;
+    let userPass = document.getElementById("pwdSignup").value;
+    console.log(userName, userPass)
+
+    let UserData = {
+        user: {
+            username: userName,
+            password: userPass
+        }
+    }
+    console.log(userData)
+
+    fetch(`http://localhost:3000/user/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        let token = data.sessionToken;
+        localStorage.setItem('sessionToken', token);
+        tokenChecker();
+    })
+    .catch(err => {
+        console.error(err)
+    })
 }
 
 function userLogout() {
