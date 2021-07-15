@@ -63,7 +63,8 @@ export default function Header() {
             </Toolbar>
         </AppBar>
 
-        <Collapse in={checked} 
+        <Collapse 
+        in={checked} 
         { ...(checked ? { timeout: 1000 }: {})} 
           collapsedHeight={50}
         >

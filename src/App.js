@@ -19,6 +19,7 @@ export default function App() {
   <div className={classes.root}>
     <CssBaseline />
     <Header />
+    <Auth />
   </div>
   );
 }
