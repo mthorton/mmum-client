@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 import './Auth.css';
-import './App.css'
+// import './src/App.css';
 
 const Auth = () => {
     const [signup, setSignup] = useState(true);
@@ -17,11 +17,13 @@ const Auth = () => {
     const [theme, setTheme] = useState('Dark');
 
     const formFont = {
-        fontFamily: 'Pacifico'
-    }
+        fontFamily: 'Pacifico',
+    };
+        
     const formWrapper = {
+        margin: 'auto',
         marginInline: '1em',
-        width: '24em',
+        width: '30em',
         minWidth: '12em',
         background: theme === 'Dark' ? 'rgba(0,0,0,.5)' : 'rgba(255,255,255, .6)',
         borderRadius: '1em',
@@ -46,7 +48,7 @@ const Auth = () => {
     const AuthInputs = () => {
         return (
             <>
-                <HeaderMsg signup={signup} />
+                <HeaderMsg signup={signup} style={formFont}/>
 
                 <FormGroup>
                     <Label htmlFor='email' color='white'>Email</Label>
@@ -134,7 +136,7 @@ const Auth = () => {
                     }}>
                         {signup ? 'Login' : 'Signup'}
                     </Button>
-
+                    
                     <Button color={theme === 'Dark' ? 'dark' : 'light'} onClick={() => {
                         theme === 'Dark' ? setTheme('Light') : setTheme('Dark')
                     }}>

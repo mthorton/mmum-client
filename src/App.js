@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
-import Header from './components/Header.js';
-
+import Header from './components/Landing.js';
+import Auth from './components/Auth/Auth.js';
 
 
 const useStyles = makeStyles((theme) => ({
