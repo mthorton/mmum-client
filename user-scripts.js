@@ -37,7 +37,7 @@ function userLogin() {
     let userPass = document.getElementById("pwdSignup").value;
     console.log(userName, userPass)
 
-    let UserData = {
+    let userData = {
         user: {
             username: userName,
             password: userPass
@@ -65,7 +65,9 @@ function userLogin() {
 }
 
 function userLogout() {
-    console.log('userLogout Function Called')
+    localStorage.setItem('sessionToken', undefined);
+    console.log(`sessionToken --> ${localStorage.sessionToken}`);
+    tokenChecker();
 }
 
 function tokenChecker() {
