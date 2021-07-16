@@ -4,8 +4,12 @@ import { AppBar, Collapse, IconButton, Toolbar } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SortIcon from '@material-ui/icons/Sort';
 
+// randomizes the greeting identification every time the page is loaded.
+
 var names = ["stargazers", "astronomers", "moon lovers", "constellation seekers", "celestial navigators"];
 var randNames = names[Math.floor(Math.random() * names.length)]; 
+
+// css styling.
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,12 +50,18 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '3em'
     },
 }));
+
+// exporting the Header function, sets state
+
 export default function Header() {
     const classes = useStyles();
     const [checked,setChecked] = useState(false);
     useEffect(()=> {
         setChecked(true);
     }, [])
+
+// content
+
     return ( 
     <div className={classes.root}>
         <AppBar className={classes.appbar} elevation={0}>
@@ -63,7 +73,8 @@ export default function Header() {
             </Toolbar>
         </AppBar>
 
-        <Collapse in={checked} 
+        <Collapse 
+        in={checked} 
         { ...(checked ? { timeout: 1000 }: {})} 
           collapsedHeight={50}
         >
@@ -80,6 +91,3 @@ export default function Header() {
     </div>
     );
 }
-
-/* var names = ["stargazers!", "astronomers!", "moon lovers!"];
-var randColor = names[Math.floor(Math.random() * names.length)]; */
