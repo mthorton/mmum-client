@@ -32,10 +32,50 @@ function postLog() {
         })
 }
 
-function editLog(postId) {
-    console.log('editLog Function Called')
+function editLog(logId) {
+    console.log(logId);
+
+    const fetch_url = `http://localhost:3000/log/update/${logId}`;
+    const accessToken = localStorage.getItem('sessionToken');
+
+    let card = document.getElementById(logId);
+    let input = document.createElement('input');
+
+    if (card.childNodes.length < 2) {
+        card.appendChild(input);
+        input.setAttribute("type", "text");
+        input.setAttribute("id", "updatedEntry");
+        input.setAttribute("placeholder", "Edit your event entry");
+    } else {
+        let updated = document.getElementById('updatedEntry').value;
+        let newEntry = {
+            log: {
+                entry: updated
+            }
+        }
+
+        fetch(fetch_url, {
+            method: "PUT",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${accessToken}`
+            }),
+            body: JSON.stringify(newEntry)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                displayMine();
+            })
+            .catch(err => {
+                console.error(err)
+            })
+
+            card.removeChild(card.lastChild)
+            
+    }
 }
 
-function deleteLog(postId) {
+function deleteLog(eventId) {
     console.log('deleteLog Function Called')
 }
