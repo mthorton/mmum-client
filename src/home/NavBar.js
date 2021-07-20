@@ -1,6 +1,16 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
+import {
+    Navbar,
+    NavbarBrand,
+    Collapse,
+    NavbarToggler,
+    NavItem,
+    Button,
+    Nav
+} from 'reactstrap';
 
 const NavBar = (props) => {
+
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => {
@@ -10,7 +20,7 @@ const NavBar = (props) => {
 
     return(
         <Navbar color="faded" light expand="md">
-            <NavbarBrand href="/">Event Log</NavbarBrand>
+            <NavbarBrand href="/">Meet Me Under the Moon</NavbarBrand>
             <NavbarToggler onClick={toggle}/>
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>

@@ -6,18 +6,46 @@ import Header from './components/site/Header';
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
-import Auth from './components/Auth/Auth';
+// import Auth from './components/Auth/Auth';
+import AuthMVP from './components/Auth/AuthMVP';
+
+import { useState, useEffect } from 'react';
+import Home from './components/site/Home';
+import NavBar from './home/NavBar';
 
 // import { makeStyles } from '@material-ui/styles';
 // import { CssBaseline } from '@material-ui/core';
 
 function App() {
+
+  const [sessionToken, setSessionToken] = useState('');
+
+  useEffect(() => {
+    if (localStorage.getItem('token')){
+      setSessionToken(localStorage.getItem('token'));
+    }
+  }, [])
+
+  const updateToken = (newToken) => {
+    localStorage.setItem('token', newToken);
+    setSessionToken(newToken);
+    console.log(sessionToken);
+  }
+
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken('');
+  }
+
+  const protectedViews = () => {
+    return (sessionToken === localStorage.getItem('token') ? <Home token={sessionToken}/>
+    : <AuthMVP updateToken={updateToken}/>)
+  }
+
   return(
     <div className='App'>
-      <Header />
-      <Auth />
-      <Router></Router>
-      <Footer />
+      <NavBar clickLogout={clearToken}/>
+      {protectedViews()}
     </div>
   );
 }
