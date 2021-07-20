@@ -7,7 +7,7 @@ const Home = () => {
                 <h1>Meet Me Under the Moon</h1>
                 <ul>
                     <li>
-                        <Link to='/eventlog'>Events</Link>
+                        {/* <Link to='/eventlog'>Events</Link> */}
                     </li>
                 </ul>
             </div>
