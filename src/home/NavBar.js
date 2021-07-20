@@ -10,7 +10,7 @@ const NavBar = (props) => {
 
     return(
         <Navbar color="faded" light expand="md">
-            <NavbarBrand href="/">Workout Log</NavbarBrand>
+            <NavbarBrand href="/">Event Log</NavbarBrand>
             <NavbarToggler onClick={toggle}/>
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
