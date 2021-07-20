@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 import './Auth.css';
-// import './src/App.css';
 
 const Auth = () => {
     const [signup, setSignup] = useState(true);
 
-    const [email, setEmail] = useState('');
+    const [username, setName] = useState('');
     const [password, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
 
-    const [emailValid, setEmailValid] = useState(false);
+    const [nameValid, setNameValid] = useState(false);
     const [passwordValid, setPasswordValid] = useState(false);
     const [cPasswordValid, setCPasswordValid] = useState(false);
 
@@ -45,25 +44,46 @@ const Auth = () => {
 
     };
 
+    //----------------VpropsV-----
     const AuthInputs = () => {
+
+
+        //------------------------------------------------------------
+        // let handleRegister = (event) => {
+        //     event.preventDefault();
+        //     fetch('http://localhost:3000/user/register', {
+        //         method: 'POST', 
+        //         body: JSON.stringify({user:{username: username, passwordhash: password}}),
+        //         headers: new Headers({
+        //             'Content-Type': 'application/json'
+        //         })
+        //     }).then(
+        //         (response) => response.json()
+        //     ).then((data) => {
+        //         props.updateToken(data.sessionToken)
+        //     })
+        // }
+        //-------------------------------------------------------------
+
+
         return (
             <>
                 <HeaderMsg signup={signup} style={formFont}/>
 
                 <FormGroup>
-                    <Label htmlFor='email' color='white'>Email</Label>
-                    <Input required type='email' id='email' style={inputStyle} valid={emailValid} invalid={!emailValid}
+                    <Label htmlFor='username' color='white'>Username</Label>
+                    <Input required type='username' id='username' style={inputStyle} valid={nameValid} invalid={!nameValid}
                         onChange={(e) => {
-                            setEmail(e.target.value)
+                            setName(e.target.value)
                             if (e.target.value.includes('@') && e.target.value.includes('.')) {
-                                setEmailValid(true)
+                                setNameValid(true)
                             } else {
-                                setEmailValid(false)
+                                setNameValid(false)
                             }
                         }}
                     />
                     <FormFeedback style={formFeedBackStyle} invalid>
-                        {signup && 'Email must be valid'}
+                        {signup && 'Username must be valid'}
                     </FormFeedback>
                 </FormGroup>
 
@@ -145,11 +165,11 @@ const Auth = () => {
 
                     {signup
                         ?
-                        <Button color='primary' type='submit' disabled={emailValid && passwordValid && cPasswordValid ? false : true}>
+                        <Button color='primary' type='submit' disabled={nameValid && passwordValid && cPasswordValid ? false : true}>
                             Submit
                         </Button>
                         :
-                        <Button color='primary' type='submit' disabled={emailValid && passwordValid ? false : true}>Submit</Button>
+                        <Button color='primary' type='submit' disabled={nameValid && passwordValid ? false : true}>Submit</Button>
                     }
                 </div>
             </Form>
