@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom';
+import EventIndex from '../../events/EventIndex';
 
 const Home = () => {
     return(
@@ -7,7 +8,7 @@ const Home = () => {
                 <h1>Meet Me Under the Moon</h1>
                 <ul>
                     <li>
-                        {/* <Link to='/eventlog'>Events</Link> */}
+                        <EventIndex />
                     </li>
                 </ul>
             </div>
