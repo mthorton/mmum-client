@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import EventCreate from './EventCreate';
+import EventTable from './EventTable';
+import EventEdit from './EventEdit';
 
 const EventIndex = (props) => {
     const [events, setEvents] = useState([]);
+    const [updateActive, setUpdateActive] = useState(false);
+    const [eventToUpdate, setEventToUpdate] = useState({});
 
     const fetchEvents = () => {
         fetch('http://localhost:3000/log', {
@@ -18,6 +22,19 @@ const EventIndex = (props) => {
     })
     };
 
+    const editUpdateEvent = (event) => {
+        setEventToUpdate(event);
+        console.log(event);
+    }
+
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+
     useEffect(() => {
         fetchEvents();
     }, []);
@@ -29,8 +46,11 @@ const EventIndex = (props) => {
                     <EventCreate fetchEvents={fetchEvents} token={props.token}/>
                 </Col>
                 <Col md='9'>
-                    <h2>Add an event to see a table. This will be added later.</h2>
+                    <EventTable events={events} editUpdateEvent={editUpdateEvent} 
+                    updateOn={updateOn} fetchEvents={fetchEvents} token={props.token}/>
                 </Col>
+                {updateActive ? <EventEdit eventToUpdate={eventToUpdate}
+                updateOff={updateOff} token={props.token} fetchEvents={fetchEvents}/> : <></>}
             </Row>
         </Container>
     )
