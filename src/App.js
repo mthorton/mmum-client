@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Footer from './components/site/Footer';
@@ -9,7 +9,6 @@ import {
 // import Auth from './components/Auth/Auth';
 import AuthMVP from './components/Auth/AuthMVP';
 
-import { useState, useEffect } from 'react';
 import Home from './components/site/Home';
 import NavBar from './home/NavBar';
 
