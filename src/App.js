@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Footer from './components/site/Footer';
 import Header from './components/site/Header';
-// import {
-//   BrowserRouter as Router
-// } from 'react-router-dom';
+import {
+  BrowserRouter as Router
+} from 'react-router-dom';
 // import Auth from './components/Auth/Auth';
 import AuthMVP from './components/Auth/AuthMVP';
 
