@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 
 import EventIndex from '../../events/EventIndex';
 import EventFeed from '../../events/EventFeed';
-import NasaAPI from '../NasaAPI';
-import MoonCalcAPI from '../MoonCalcAPI';
+import NasaAPI from '../APIs/NasaAPI';
+import MoonCalcAPI from '../APIs/MoonCalcAPI';
 
 const Home = (props) => {
 
