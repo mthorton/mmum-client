@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button } from reactstrap;
+import { Table, Button } from 'reactstrap'; // forgot single quotes
 
 const EventTable = (props) => {
 

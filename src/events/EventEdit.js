@@ -7,7 +7,7 @@ const EventEdit = props => {
     const [editLocation, setEditLocation] = useState(props.eventToUpdate.location);
     const [editDescription, setEditDescription] = useState(props.eventToUpdate.description);
 
-    const eventUpdate = (event, event) => {  // Look into this more
+    const eventUpdate = (event, index) => {  // Look into this more // changed 2nd event to index.
         event.preventDefault();
         fetch(`http://localhost:3000/log/${props.eventToUpdate.id}`, {
             method: 'PUT',
