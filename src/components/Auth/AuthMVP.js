@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Col, Container, Form, FormGroup, Label, Input, Row } from 'reactstrap';
 
+
 /* I attempted to merge Background.js --> AuthMVP.js and couldn't do it
 
 var names = ["stargazers", "astronomers", "moon lovers", "constellation seekers", "celestial navigators"];
@@ -139,7 +140,7 @@ const Login = (props) => {
             props.updateToken(data.sessionToken)
         })
     }
-
+    
     return (
         <div>
             <h1>Login</h1>
@@ -160,9 +161,13 @@ const Login = (props) => {
 
 // Page Display
 
+const authContainer = {
+    fontFamily: 'Pacifico',
+};
+
  const AuthMVP = (props) => {
     return(
-        <Container className='auth-container'>
+        <Container className={authContainer}>
             <Row>
                 <Col md="6">
                     <Signup updateToken={props.updateToken} />

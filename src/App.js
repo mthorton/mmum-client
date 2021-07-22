@@ -8,15 +8,12 @@ import Header from './components/site/Header';
 import {
   BrowserRouter as Router
 } from 'react-router-dom';
-// import Auth from './components/Auth/Auth';
+
+// import Auth from './components/Auth/Auth'; This was the original; scrapped.
+
 import AuthMVP from './components/Auth/AuthMVP';
-
 import Home from './components/site/Home';
-import NavBar from './home/NavBar';
 import Background from './components/site/Background';
-
-// import { makeStyles } from '@material-ui/styles';
-// import { CssBaseline } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,13 +50,12 @@ function App() {
     : <AuthMVP updateToken={updateToken}/>)
   }
 
-  const classes = useStyles();
+  const classes = makeStyles();
   return(
-    <div className={classes.root}>
-    <CssBaseline />
-    <Header />
     <div className='App'>
-      <NavBar clickLogout={clearToken}/>
+      <div className={classes.root}>
+    <CssBaseline />
+    <Background />
       {protectedViews()}
     </div>
     </div>
