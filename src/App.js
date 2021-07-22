@@ -11,6 +11,7 @@ import AuthMVP from './components/Auth/AuthMVP';
 
 import Home from './components/site/Home';
 import NavBar from './home/NavBar';
+// import Background from './site/Background';
 
 // import { makeStyles } from '@material-ui/styles';
 // import { CssBaseline } from '@material-ui/core';
