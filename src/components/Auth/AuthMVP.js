@@ -1,44 +1,86 @@
-import React, {useState, makeStyles} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Button, Col, Container, Form, FormGroup, Label, Input, Row } from 'reactstrap';
-/*
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
-*/
+
+/* I attempted to merge Background.js --> AuthMVP.js and couldn't do it
+
+var names = ["stargazers", "astronomers", "moon lovers", "constellation seekers", "celestial navigators"];
+var randNames = names[Math.floor(Math.random() * names.length)]; 
 
 const useStyles = makeStyles((theme) => ({
-    sheet: {
-        marginTop: theme.spacing(8),
-        dispaly: 'flex',
-        flexDirection: 'column',
+    root: {
+        display: 'flex',
+        justifyContent: 'center',
         alignItems: 'center',
+        textAlign: 'center',
+        height: '100vh',
         fontFamily: 'Pacifico',
+        
     },
-    avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+    appbar: {
+        background: 'none',
     },
-    form: {
-        width: '100%',
-        marginTop: theme.spacing(1),
+    appbarWrapper: {
+        width: "80%",
+        margin: '0 auto',
     },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
+    appbarTitle: {
+        flexGrow: '1',
+    },
+    icon: {
+        color: '#fff',
+        fontSize: '2rem',
+    },
+    colorText:{
+        color: '#9999FF',
+    },
+    container: {
+        textAlign: 'center',
+    },
+    title:{
+        color: '#fff',
+        fontSize: '4.5rem',
+    },
+    goDown: {
+        color: '#9999FF',
+        fontSize: '3em'
     },
 }));
+function Background() {
+    const classes = useStyles();
+    const [checked,setChecked] = useState(false);
+    useEffect(()=> {
+        setChecked(true);
+    }, [])
+    return ( 
+    <div className={classes.root}>
+        <AppBar className={classes.appbar} elevation={0}>
+            <Toolbar className={classes.appbarWrapper}>
+            <h1 className={classes.appbarTitle}><span className={classes.colorText}>Meet Me Under the</span> Moon.</h1>
+            <IconButton>
+                <SortIcon className={classes.icon} />
+            </IconButton>
+            </Toolbar>
+        </AppBar>
 
-// Sign Up Javascript --- Sign Up 'Box'
+        <Collapse in={checked} 
+        { ...(checked ? { timeout: 1000 }: {})} 
+          collapsedHeight={50}
+        >
+        <div className={classes.container}>
+            <h1 className={classes.title}> 
+                Find fellow <br /> {''}
+            <span className={classes.colorText}>{randNames}!</span>
+            </h1>
+            <IconButton>
+                <ExpandMoreIcon className={classes.goDown} />
+            </IconButton>
+        </div>
+      </Collapse>
+    </div>
+    );
+}
+
+*/
 
 const Signup = (props) => {
     const [username, setUsername] = useState("username");
