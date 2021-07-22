@@ -170,6 +170,7 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         height: '40vh',
         fontFamily: 'Pacifico',
+        color: '#9999FF',
     },
 }));
  export default function AuthMVP(props) {

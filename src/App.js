@@ -13,6 +13,7 @@ import {
 
 import AuthMVP from './components/Auth/AuthMVP';
 import Home from './components/site/Home';
+import Greeting from './components/site/Greeting';
 import Background from './components/site/Background';
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-
   const [sessionToken, setSessionToken] = useState('');
 
   useEffect(() => {
@@ -55,7 +55,7 @@ function App() {
     <div className='App'>
       <div className={classes.root}>
     <CssBaseline />
-    <Background />
+    <Greeting />
       {protectedViews()}
     </div>
     </div>
@@ -64,7 +64,7 @@ function App() {
 
 export default App;
 
-/* This was the old code for the Material-UI code.
+/* This was the old code for the Material-UI based 
  const useStyles = makeStyles(theme => ({
    root: {
      minHeight: '100vh',
