@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button, Col, Container, Form, FormGroup, Label, Input, Row } from 'reactstrap';
 
 
@@ -161,13 +162,24 @@ const Login = (props) => {
 
 // Page Display
 
-const authContainer = {
-    fontFamily: 'Pacifico',
-};
-
- const AuthMVP = (props) => {
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        height: '40vh',
+        fontFamily: 'Pacifico',
+    },
+}));
+ export default function AuthMVP(props) {
+    const classes = useStyles();
+    const [checked,setChecked] = useState(false);
+    useEffect(()=> {
+        setChecked(true);
+    }, [])
     return(
-        <Container className={authContainer}>
+        <Container className={classes.root}>
             <Row>
                 <Col md="6">
                     <Signup updateToken={props.updateToken} />
@@ -179,5 +191,3 @@ const authContainer = {
         </Container>
     )
 }
-
-export default AuthMVP; 

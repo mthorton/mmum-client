@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 
+// Adds the elevation scroll property --> blur beneath appbar.
+
 function ElevationScroll(props) {
     const { children, window } = props;
     const trigger = useScrollTrigger({
@@ -25,6 +27,12 @@ ElevationScroll.propTypes = {
 };
 
 const useStyles = makeStyles((theme) => ({
+    background: {
+        minHeight: '100vh',
+        backgroundImage: `url(${process.env.PUBLIC_URL + "assets/starry_sky.jpg"})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover', 
+      },
     root: {
         display: 'flex',
         justifyContent: 'center',
@@ -73,6 +81,7 @@ function Background() {
         setChecked(true);
     }, [])
     return (
+        <div className={classes.background}>
         <div className={classes.root}>
             <CssBaseline />
             <ElevationScroll>
@@ -99,6 +108,7 @@ function Background() {
                     </IconButton>
                 </div>
             </Collapse>
+        </div>
         </div>
     );
 }
