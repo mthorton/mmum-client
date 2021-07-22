@@ -8,11 +8,11 @@ const EventCreate = (props) => {
     const [description, setDescription] = useState('');
 
     useEffect(() => {
-        fetchEvents();
+        handleSubmit();
     }, []);
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         fetch('http://localhost:3000/log/', {
             method: 'POST',
             body: JSON.stringify({log: {title: title, date: date, location: location, description: description}}),
@@ -58,3 +58,4 @@ const EventCreate = (props) => {
 };
 
 export default EventCreate;
+
