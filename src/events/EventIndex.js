@@ -10,7 +10,7 @@ const EventIndex = (props) => {
     const [eventToUpdate, setEventToUpdate] = useState({});
 
     const fetchEvents = () => {
-        fetch('http://localhost:3000/log', {
+        fetch('http://localhost:3000/log/all', {
         method: "GET",
         headers: new Headers({
             'Content-Type': "application/json",
@@ -42,10 +42,8 @@ const EventIndex = (props) => {
     return(
         <Container>
             <Row>
-                <Col md='3'>
-                    <EventCreate fetchEvents={fetchEvents} token={props.token}/>
-                </Col>
-                <Col md='9'>
+                
+                <Col md='12'>
                     <EventTable events={events} editUpdateEvent={editUpdateEvent} 
                     updateOn={updateOn} fetchEvents={fetchEvents} token={props.token}/>
                 </Col>

@@ -3,21 +3,19 @@ import { Table } from 'reactstrap'; // forgot single quotes
 
 const EventFeed = (props) => {
 
-    const fetchEvents = () => {
-        fetch('http://localhost:3000/log/all', {
-        method: "GET",
-        headers: new Headers({
-            'Content-Type': "application/json",
-            'Authorization': props.token //`Bearer ${props.token}`
+    const eventMapper = () => {
+        return props.events.map((event, index) => {
+            return(
+                <tr key={index}>
+                    <th scope="row">{event.id}</th>
+                    <td>{event.date}</td>
+                    <td>{event.title}</td>
+                    <td>{event.location}</td>
+                    <td>{event.description}</td>
+                </tr>
+            )
         })
-    }).then((res) => res.json())
-    .then((logData) => {
-        console.log(logData);
-        //eventMapper(logData);
-    }).catch((error) => {
-        //console.error(error);
-    })
-    };
+    }
 
     return(
         <>
@@ -34,7 +32,7 @@ const EventFeed = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {fetchEvents()}
+                {eventMapper()}
             </tbody>
         </Table>
         </>
