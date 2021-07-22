@@ -1,10 +1,18 @@
 import {Link} from 'react-router-dom';
+import { Container, Row, Col } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+
 import EventIndex from '../../events/EventIndex';
 import EventFeed from '../../events/EventFeed';
 import NasaAPI from '../NasaAPI';
 import MoonCalcAPI from '../MoonCalcAPI';
 
-const Home = () => {
+const Home = (props) => {
+
+    const [events, setEvents] = useState([]);
+    const [updateActive, setUpdateActive] = useState(false);
+    const [eventToUpdate, setEventToUpdate] = useState({});
+
     return(
         <div className='main'>
             <div className='mainDiv'>
@@ -12,9 +20,7 @@ const Home = () => {
                 <ul>
                     <li>
                         {/* <MoonCalcAPI/> */}
-                        <NasaAPI />
-                        <EventFeed/>
-                        {/* <EventIndex /> */}
+                        <EventIndex />
                     </li>
                 </ul>
             </div>
