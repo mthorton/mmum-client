@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Col, Container, Form, FormGroup, Label, Input, Row } from 'reactstrap';
+import { CssBaseline } from '@material-ui/core';
+import Greeting from '../site/Greeting';
 import APIURL from '../../helpers/environment';
 
 
@@ -182,6 +184,7 @@ const useStyles = makeStyles((theme) => ({
     }, [])
     return(
         <Container className={classes.root}>
+            
             <Row>
                 <Col md="6">
                     <Signup updateToken={props.updateToken} />

@@ -1,0 +1,21 @@
+.navbar{
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10%;
+    width: 100%;
+    background-color: darkblue;
+}
+
+.nav-links li{
+    display: inline;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nav-title {
+    padding-left: 100px;
+}
+
+.nav-button {
+    margin-left: 150%;
+}
