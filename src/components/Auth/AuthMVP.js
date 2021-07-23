@@ -93,7 +93,7 @@ const Signup = (props) => {
         event.preventDefault();
         fetch(`${APIURL}/user/register`, {
             method: 'POST', 
-            body: JSON.stringify({user:{username: username, passwordhash: password}}),
+            body: JSON.stringify({user:{username: username, password: password}}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
@@ -132,7 +132,7 @@ const Login = (props) => {
         event.preventDefault();
         fetch(`${APIURL}/user/login`, {
             method: 'POST', 
-            body: JSON.stringify({user:{username: username, passwordhash: password}}),
+            body: JSON.stringify({user:{username: username, password: password}}),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
