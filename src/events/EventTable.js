@@ -14,6 +14,24 @@ const EventTable = (props) => {
         .then(() => props.fetchEvents())
     }
 
+    // const eventMapper = () => {
+    //     return props.events.map((event, index) => {
+    //         return(
+    //             <tr key={index}>
+    //                 <th scope="row">{event.id}</th>
+    //                 <td>{event.date}</td>
+    //                 <td>{event.title}</td>
+    //                 <td>{event.location}</td>
+    //                 <td>{event.description}</td>
+    //                 <td>
+    //                     <Button color="warning" onClick={() => {props.editUpdateEvent(event); props.updateOn()}}>Update</Button>
+    //                     <Button color="danger" onClick={() => {deleteEvent(event)}}>Delete</Button>
+    //                 </td>
+    //             </tr>
+    //         )
+    //     })
+    // }
+
     const eventMapper = () => {
         return props.events.map((event, index) => {
             return(
@@ -23,10 +41,6 @@ const EventTable = (props) => {
                     <td>{event.title}</td>
                     <td>{event.location}</td>
                     <td>{event.description}</td>
-                    <td>
-                        <Button color="warning" onClick={() => {props.editUpdateEvent(event); props.updateOn()}}>Update</Button>
-                        <Button color="danger" onClick={() => {deleteEvent(event)}}>Delete</Button>
-                    </td>
                 </tr>
             )
         })

@@ -15,6 +15,7 @@ import AuthMVP from './components/Auth/AuthMVP';
 import Home from './components/site/Home';
 import Greeting from './components/site/Greeting';
 import Background from './components/site/Background';
+import NavBar from './components/site/Navbar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,9 +55,16 @@ function App() {
   return(
     <div className='App'>
       <div className={classes.root}>
-    <CssBaseline />
-    <Greeting />
+    
+    <Router>
+      {/* <CssBaseline /> */}
+      
+      <Greeting />
       {protectedViews()}
+      {/* <NavBar clickLogout={clearToken}/> */}
+
+    </Router>
+    
     </div>
     </div>
   );
