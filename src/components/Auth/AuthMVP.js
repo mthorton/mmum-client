@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Col, Container, Form, FormGroup, Label, Input, Row } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 
 /* I attempted to merge Background.js --> AuthMVP.js and couldn't do it
@@ -90,7 +91,7 @@ const Signup = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/register', {
+        fetch(`${APIURL}/user/register`, {
             method: 'POST', 
             body: JSON.stringify({user:{username: username, passwordhash: password}}),
             headers: new Headers({
@@ -129,7 +130,7 @@ const Login = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/login', {
+        fetch(`${APIURL}/user/login`, {
             method: 'POST', 
             body: JSON.stringify({user:{username: username, passwordhash: password}}),
             headers: new Headers({
