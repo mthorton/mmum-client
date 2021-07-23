@@ -1,10 +1,11 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap'; // forgot single quotes
+import APIURL from '../helpers/environment';
 
 const EventTable = (props) => {
 
     const deleteEvent = (event) => {
-        fetch(`http://localhost:3000/log/${event.id}`, {
+        fetch(`${APIURL}/log/${event.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',

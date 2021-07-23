@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import APIURL from '../helpers/environment';
 
 const EventCreate = (props) => {
     const [title, setTitle] = useState('');
@@ -13,7 +14,7 @@ const EventCreate = (props) => {
 
     const handleSubmit = (e) => {
         //e.preventDefault();
-        fetch('http://localhost:3000/log/', {
+        fetch(`${APIURL}/log/`, {
             method: 'POST',
             body: JSON.stringify({log: {title: title, date: date, location: location, description: description}}),
             headers: new Headers({
