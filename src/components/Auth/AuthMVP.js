@@ -93,7 +93,8 @@ const Signup = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`${APIURL}/user/register`, {
+        //fetch(`${APIURL}/user/register`, {
+        fetch('http://localhost:3000/user/register', {    
             method: 'POST', 
             body: JSON.stringify({user:{username: username, password: password}}),
             headers: new Headers({
@@ -132,7 +133,8 @@ const Login = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`${APIURL}/user/login`, {
+        //fetch(`${APIURL}/user/login`, {
+        fetch('http://localhost:3000/user/login', {
             method: 'POST', 
             body: JSON.stringify({user:{username: username, password: password}}),
             headers: new Headers({
