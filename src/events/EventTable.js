@@ -5,7 +5,8 @@ import APIURL from '../helpers/environment';
 const EventTable = (props) => {
 
     const deleteEvent = (event) => {
-        fetch(`${APIURL}/log/${event.id}`, {
+        //fetch(`${APIURL}/log/${event.id}`, {
+        fetch(`http://localhost:3000/log/${event.id}`, {  
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -42,6 +43,10 @@ const EventTable = (props) => {
                     <td>{event.title}</td>
                     <td>{event.location}</td>
                     <td>{event.description}</td>
+                    <td>
+                        <Button color="warning" onClick={() => {props.editUpdateEvent(event); props.updateOn()}}>Update</Button>
+                        <Button color="danger" onClick={() => {deleteEvent(event)}}>Delete</Button>
+                    </td>
                 </tr>
             )
         })
@@ -49,7 +54,7 @@ const EventTable = (props) => {
 
     return(
         <>
-        <h3>Event History</h3>
+        <h3>Create An Event</h3>
         <hr/>
         <Table striped>
             <thead>
@@ -59,6 +64,7 @@ const EventTable = (props) => {
                     <th>Title</th>
                     <th>Location</th>
                     <th>Description</th>
+                    
                 </tr>
             </thead>
             <tbody>

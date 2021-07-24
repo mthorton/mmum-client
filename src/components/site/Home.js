@@ -4,9 +4,9 @@ import React, { useState, useEffect } from 'react';
 
 import CreateEvent from './CreateEvent';
 import Profile from './Profile';
+import EventFeed from '../../events/EventFeed';
 
 import EventIndex from '../../events/EventIndex';
-import EventFeed from '../../events/EventFeed';
 import NasaAPI from '../APIs/NasaAPI';
 import MoonCalcAPI from '../APIs/MoonCalcAPI';
 import NavBar from './Navbar';
@@ -35,7 +35,7 @@ const Home = () => {
         <div>
             <NavBar clickLogout={clearToken}/>
             <Switch>
-                <Route exact path='/eventindex'><EventIndex /></Route>
+                <Route exact path='/eventfeed'><EventFeed /></Route>
                 <Route exact path='/createevent'><CreateEvent /></Route>
                 <Route exact path='/profile'><Profile /></Route>
             </Switch>
