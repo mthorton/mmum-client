@@ -35,7 +35,7 @@ const Home = () => {
             <NavBar clickLogout={clearToken}/>
             <Switch>
                 <Route exact path='/eventfeed'><EventFeed /></Route>
-                <Route exact path='/create'><EventIndex /></Route>
+                <Route exact path='/createevent'><EventIndex /></Route>
                 <Route exact path='/profile'><Profile /></Route>
             </Switch>
         </div>
