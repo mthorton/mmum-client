@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import EventCreate from './EventCreate';
 import EventTable from './EventTable';
 import EventEdit from './EventEdit';
 import APIURL from '../helpers/environment';
@@ -11,8 +10,8 @@ const EventFeed = (props) => {
     const [eventToUpdate, setEventToUpdate] = useState({});
 
     const fetchEvents = () => {
-        //fetch(`${APIURL}/log/all`, {
-        fetch('http://localhost:3000/log/all', {  
+        fetch(`${APIURL}/log/all`, {
+        // fetch('http://localhost:3000/log/all', {  
         method: "GET",
         headers: new Headers({
             'Content-Type': "application/json",

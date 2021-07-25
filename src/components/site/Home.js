@@ -2,11 +2,10 @@ import {Link, Route, Switch} from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import React, { useState, useEffect } from 'react';
 
-import CreateEvent from './CreateEvent';
+import EventIndex from './EventIndex';
 import Profile from './Profile';
 import EventFeed from '../../events/EventFeed';
 
-import EventIndex from '../../events/EventIndex';
 import NasaAPI from '../APIs/NasaAPI';
 import MoonCalcAPI from '../APIs/MoonCalcAPI';
 import NavBar from './Navbar';
@@ -36,7 +35,7 @@ const Home = () => {
             <NavBar clickLogout={clearToken}/>
             <Switch>
                 <Route exact path='/eventfeed'><EventFeed /></Route>
-                <Route exact path='/createevent'><CreateEvent /></Route>
+                <Route exact path='/create'><EventIndex /></Route>
                 <Route exact path='/profile'><Profile /></Route>
             </Switch>
         </div>
