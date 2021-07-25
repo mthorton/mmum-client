@@ -10,8 +10,8 @@ const EventEdit = props => {
 
     const eventUpdate = (event, index) => {  // Look into this more // changed 2nd event to index.
         event.preventDefault();
-        //fetch(`${APIURL}/log/${props.eventToUpdate.id}`, {
-        fetch(`http://localhost:3000/log/${props.eventToUpdate.id}`, {  
+        fetch(`${APIURL}/log/${props.eventToUpdate.id}`, {
+        // fetch(`http://localhost:3000/log/${props.eventToUpdate.id}`, {  
             method: 'PUT',
             body: JSON.stringify({log: {date: editDate, title: editTitle, location: editLocation, description: editDescription}}),
             headers: new Headers({

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import CreateEvent from './CreateEvent';
+import EventIndex from './EventIndex';
 import Profile from './Profile';
-import EventIndex from '../../events/EventIndex';
 import Home from './Home';
 import {Link, Route, Switch} from 'react-router-dom';
 import './NavBar.css';
