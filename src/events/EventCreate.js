@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import APIURL from '../helpers/environment';
+//import APIURL from '../helpers/environment';
 
 const EventCreate = (props) => {
     const [date, setDate] = useState('');
@@ -8,13 +8,14 @@ const EventCreate = (props) => {
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
 
-    useEffect(() => {
-        handleSubmit();
-    }, []);
+    // useEffect(() => {
+    //     handleSubmit();
+    // }, []);
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         //fetch(`${APIURL}/log/`, {
-        fetch(`http://localhost:3000/log/create`, {  
+        fetch(`http://localhost:3000/log/create/`, {  
             method: 'POST',
             body: JSON.stringify({log: {date: date, title: title, location: location, description: description}}),
             headers: new Headers({

@@ -1,11 +1,12 @@
 import React from 'react';
 import { Table, Button } from 'reactstrap'; 
-import APIURL from '../helpers/environment';
+//import APIURL from '../helpers/environment';
 
 const EventTable = (props) => {
 
     const deleteEvent = (event) => {
         //fetch(`${APIURL}/log/${event.id}`, {
+        //${props.deleteEvent.id}
         fetch(`http://localhost:3000/log/delete/${event.id}`, {  
             method: 'DELETE',
             headers: new Headers({
