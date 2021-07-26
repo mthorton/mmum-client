@@ -3,7 +3,7 @@
     margin-right: auto;
     padding-left: 10%;
     width: 100%;
-    background-color: darkblue;
+    background-color: rgb(46, 59, 85);
 }
 
 .nav-links li{
@@ -12,8 +12,10 @@
     padding-right: 20px;
 }
 
-.nav-title {
+.nav-title h1 {
     padding-left: 100px;
+    color: #9999FF;
+    font-family: Pacifico;
 }
 
 .nav-button {
