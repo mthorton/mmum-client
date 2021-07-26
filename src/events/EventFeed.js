@@ -3,7 +3,8 @@ import { Container, Row, Col } from 'reactstrap';
 import EventFeedTable from './EventFeedTable';
 import EventEdit from './EventEdit';
 import NasaAPI from '../components/APIs/NasaAPI';
-import APIURL from '../helpers/environment';
+import './EventFeed.css';
+//import APIURL from '../helpers/environment';
 
 const EventFeed = (props) => {
     const [events, setEvents] = useState([]);
@@ -42,7 +43,7 @@ const EventFeed = (props) => {
     }, []);
 
     return(
-        <Container>
+        <Container className='event-feed'>
             <NasaAPI/>
             <Row>
                 <Col md='12'>

@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import EventCreate from '../../events/EventCreate';
 import EventTable from '../../events/EventTable';
 import EventEdit from '../../events/EventEdit';
-import APIURL from '../../helpers/environment';
+//import APIURL from '../../helpers/environment';
 
 const EventIndex = (props) => {
     const [events, setEvents] = useState([]);
@@ -12,7 +12,8 @@ const EventIndex = (props) => {
 
     const fetchEvents = () => {
         //fetch(`${APIURL}/log`, {
-        fetch('http://localhost:3000/log/all/', {  
+        //${event.id}
+        fetch(`http://localhost:3000/log/all/`, {  
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json',

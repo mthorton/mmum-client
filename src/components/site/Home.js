@@ -1,5 +1,5 @@
-import {Link, Route, Switch} from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
+import {Redirect, Route, Switch} from 'react-router-dom';
+//import { Container, Row, Col } from 'reactstrap';
 import React, { useState, useEffect } from 'react';
 import './Home.css';
 
@@ -8,9 +8,9 @@ import Profile from './Profile';
 import EventFeed from '../../events/EventFeed';
 
 import NavBar from './Navbar';
-import AuthMVP from '../Auth/AuthMVP';
+//import AuthMVP from '../Auth/AuthMVP';
 
-const Home = () => {
+const Home = (props) => {
 
     // const [events, setEvents] = useState([]);
     // const [updateActive, setUpdateActive] = useState(false);
@@ -34,8 +34,9 @@ const Home = () => {
             <NavBar clickLogout={clearToken}/>
             
             <Switch>
+                <Route exact path='/' component={() => (<Redirect to='/eventfeed' />)} />
                 <Route exact path='/eventfeed'><EventFeed /></Route>
-                <Route exact path='/createevent'><EventIndex /></Route>
+                <Route exact path='/createevent'><EventIndex token={props.token} /></Route>
                 <Route exact path='/profile'><Profile /></Route>
             </Switch>
             

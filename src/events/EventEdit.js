@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import APIURL from '../helpers/environment';
+//import APIURL from '../helpers/environment';
 
-const EventEdit = props => {
+const EventEdit = (props) => {
     const [editDate, setEditDate] = useState(props.eventToUpdate.date);
     const [editTitle, setEditTitle] = useState(props.eventToUpdate.title);
     const [editLocation, setEditLocation] = useState(props.eventToUpdate.location);
@@ -22,7 +22,10 @@ const EventEdit = props => {
         }) .then((res) => {
             props.fetchEvents();
             props.updateOff();
-        })
+        }) .catch(function(error) {
+            console.log('Error with fetch: ' + error.message);
+            throw error;
+        });
     }
 
     return(
