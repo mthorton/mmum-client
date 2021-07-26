@@ -17,6 +17,7 @@ import Home from './components/site/Home';
 import Greeting from './components/site/Greeting';
 import Background from './components/site/Background';
 import NavBar from './components/site/Navbar';
+import AuthLanding from './components/Auth/AuthLanding';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,10 +43,10 @@ function App() {
     console.log(sessionToken);
   }
 
-  const clearToken = () => {
-    localStorage.clear();
-    setSessionToken('');
-  }
+  // const clearToken = () => {
+  //   localStorage.clear();
+  //   setSessionToken('');
+  // }
 
   const protectedViews = () => {
     return (sessionToken === localStorage.getItem('token') ? <Home token={sessionToken}/>
@@ -59,14 +60,12 @@ function App() {
     
     <Router>
       {/* <CssBaseline /> */}
-      
-      <Greeting />
+      {/* <Greeting /> */}
       {protectedViews()}
       {/* <NavBar clickLogout={clearToken}/> */}
-
     </Router>
     
-    </div>
+      </div>
     </div>
   );
 }

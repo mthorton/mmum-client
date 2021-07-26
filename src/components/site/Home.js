@@ -1,13 +1,12 @@
 import {Link, Route, Switch} from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import React, { useState, useEffect } from 'react';
+import './Home.css';
 
 import EventIndex from './EventIndex';
 import Profile from './Profile';
 import EventFeed from '../../events/EventFeed';
 
-import NasaAPI from '../APIs/NasaAPI';
-import MoonCalcAPI from '../APIs/MoonCalcAPI';
 import NavBar from './Navbar';
 import AuthMVP from '../Auth/AuthMVP';
 
@@ -31,13 +30,15 @@ const Home = () => {
   }
 
     return(
-        <div>
+        <div className='home-page'>
             <NavBar clickLogout={clearToken}/>
+            
             <Switch>
                 <Route exact path='/eventfeed'><EventFeed /></Route>
                 <Route exact path='/createevent'><EventIndex /></Route>
                 <Route exact path='/profile'><Profile /></Route>
             </Switch>
+            
         </div>
     );
 };

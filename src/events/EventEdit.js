@@ -10,13 +10,14 @@ const EventEdit = props => {
 
     const eventUpdate = (event, index) => {  // Look into this more // changed 2nd event to index.
         event.preventDefault();
-        fetch(`${APIURL}/log/${props.eventToUpdate.id}`, {
-        // fetch(`http://localhost:3000/log/${props.eventToUpdate.id}`, {  
+        //fetch(`${APIURL}/log/${props.eventToUpdate.id}`, {
+        fetch(`http://localhost:3000/log/update/${props.eventToUpdate.id}`, {  
             method: 'PUT',
             body: JSON.stringify({log: {date: editDate, title: editTitle, location: editLocation, description: editDescription}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                //'Authorization': props.token
+                'Authorization' : `Bearer ${props.token}`
             })
         }) .then((res) => {
             props.fetchEvents();
@@ -30,7 +31,7 @@ const EventEdit = props => {
             <ModalBody>
                 <Form onSubmit={eventUpdate}>
                 <FormGroup>
-                    <Label htmlFor="date">Edit Date: </Label>
+                    <Label htmlFor="datetime">Edit Date: </Label>
                     <Input type="datetime" value={editDate} onChange={(e) => setEditDate(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>
