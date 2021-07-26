@@ -50,7 +50,7 @@ function App() {
 
   const protectedViews = () => {
     return (sessionToken === localStorage.getItem('token') ? <Home token={sessionToken}/>
-    : <AuthMVP updateToken={updateToken}/>)
+    : <AuthLanding updateToken={updateToken}/>)
   }
 
   const classes = makeStyles();

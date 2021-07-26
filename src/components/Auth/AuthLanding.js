@@ -2,7 +2,7 @@ import {useState} from 'react';
 import AuthMVP from "./AuthMVP";
 import Greeting from "../site/Greeting";
 
-const AuthLanding = () => {
+const AuthLanding = (props) => {
 
     const [sessionToken, setSessionToken] = useState('');
 
@@ -15,7 +15,7 @@ const AuthLanding = () => {
     return(
         <div>
             <Greeting />
-            <AuthMVP updateToken={updateToken}/>
+            <AuthMVP updateToken={props.updateToken}/>
         </div>
     )
 }

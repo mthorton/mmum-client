@@ -50,7 +50,7 @@ const NavBar = (props) => {
                      </Switch> */}
                     </NavItem>
                     <NavItem>
-                        <Button className='nav-button' onClick={props.clickLogout}>Logout</Button>
+                        <Button className='nav-button' onClick={props.clickLogout} href='/'>Logout</Button>
                     </NavItem>
                     
                 </Nav>
