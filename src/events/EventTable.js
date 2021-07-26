@@ -28,8 +28,8 @@ const EventTable = (props) => {
                     <td>{event.location}</td>
                     <td>{event.description}</td>
                     <td>
-                        <Button color="warning" onClick={() => {props.editUpdateEvent(event); props.updateOn()}}>Update</Button>
-                        <Button color="danger" onClick={() => {deleteEvent(event)}}>Delete</Button>
+                        <Button color="white" onClick={() => {props.editUpdateEvent(event); props.updateOn()}}>Update</Button>
+                        <Button color="white" onClick={() => {deleteEvent(event)}}>Delete</Button>
                     </td>
                 </tr>
             )
@@ -38,7 +38,7 @@ const EventTable = (props) => {
 
     return(
         <>
-        <h3>Event Log</h3>
+        <h3>Your Events</h3>
         <hr/>
         <Table striped>
             <thead>

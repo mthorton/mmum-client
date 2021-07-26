@@ -13,7 +13,7 @@ const EventEdit = (props) => {
         //fetch(`${APIURL}/log/${props.eventToUpdate.id}`, {
         fetch(`http://localhost:3000/log/update/${props.eventToUpdate.id}`, {  
             method: 'PUT',
-            body: JSON.stringify({log: {date: editDate, title: editTitle, location: editLocation, description: editDescription}}),
+            body: JSON.stringify({log: {title: editTitle, description: editDescription, date: editDate, location: editLocation}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 //'Authorization': props.token
