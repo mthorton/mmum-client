@@ -6,6 +6,7 @@ import SortIcon from '@material-ui/icons/Sort';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import NavBar from './Navbar';
 
 // Adds the elevation scroll property --> blur beneath appbar.
 
@@ -74,12 +75,15 @@ const useStyles = makeStyles((theme) => ({
 const names = ["stargazers", "astronomers", "moon lovers", "constellation seekers", "celestial navigators"];
 const randNames = names[Math.floor(Math.random() * names.length)];
 
+
+
 function Greeting() {
     const classes = useStyles();
     const [checked, setChecked] = useState(false);
     useEffect(() => {
         setChecked(true);
     }, [])
+
     return (
         <div className={classes.background}>
         <div className={classes.root}>

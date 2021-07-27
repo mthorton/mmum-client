@@ -1,12 +1,10 @@
-/* 
-
 import React from 'react';
 
-const profilePic = {
-    width:"160px", 
-    height:"160px", 
-    borderRadius:"80px"
-},
+// const profilePic = {
+//     width:"160px", 
+//     height:"160px", 
+//     borderRadius:"80px"
+// },
 
 
 const Profile = () => {
@@ -19,7 +17,7 @@ const Profile = () => {
                     justifyContent:"space-around",
                     margin: "18px, 0px"
                 }}>
-                    <img style={profilePic} src=""/>
+                    {/* <img style={profilePic} src=""/> */}
                 </div>
                 <div>
                     <h4>Aaron Jefferson</h4>
@@ -35,4 +33,3 @@ const Profile = () => {
 
 export default Profile;
 
-*/

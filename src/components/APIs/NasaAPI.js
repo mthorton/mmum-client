@@ -21,6 +21,8 @@ function NasaAPI(){
     return(
         <div>
             <button onClick={getApod}>NASA APOD</button>
+            {/* {getApod()} */}
+            <img src={apod.image} />
         </div>
     )
 }
