@@ -31,9 +31,9 @@ const NavBar = (props) => {
                 <Nav className="ml" navbar>
                     <NavItem className='nav-links'>
                         <ul >
-                            <li><Link to='/eventfeed'>Home</Link></li>
-                            <li><Link to='/createevent'>Create Event</Link></li>
-                            <li><Link to='/profile'>Profile</Link></li>
+                            <li className='nav-link'><Link to='/eventfeed'>Home</Link></li>
+                            <li className='nav-link'><Link to='/createevent'>Create Event</Link></li>
+                            <li className='nav-link'><Link to='/profile'>Profile</Link></li>
                         </ul>
                     </NavItem>
             <NavbarBrand className='nav-title' href="/"><h1>Meet Me Under the Moon.</h1></NavbarBrand>

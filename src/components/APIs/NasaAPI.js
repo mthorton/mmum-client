@@ -14,15 +14,19 @@ function NasaAPI(){
         .then(json => {
             console.log(json);
             setApod(json);
+            showImage(json);
         })
+    }
+
+    const showImage = (apod) => {
+        return <img src={apod.image} />
     }
     
 
     return(
         <div>
-            <button onClick={getApod}>NASA APOD</button>
-            {/* {getApod()} */}
-            <img src={apod.image} />
+            {/* {getApod()}
+            <showImage/> */}
         </div>
     )
 }

@@ -20,10 +20,10 @@ const EventFeedTable = (props) => {
 
     return(
         <>
-        <h3>Event Feed</h3>
+        <h3 className='feed-header'>Event Feed</h3>
         <hr/>
-        <Table striped>
-            <thead>
+        <Table>
+            <thead className='feed-table'>
                 <tr>
                     <th>#</th>
                     <th>Date</th>
