@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Collapse, IconButton, Toolbar } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import SortIcon from '@material-ui/icons/Sort';
 import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import NavBar from './Navbar';
 
 // Adds the elevation scroll property --> blur beneath appbar.
 
@@ -29,14 +26,6 @@ ElevationScroll.propTypes = {
 
 const useStyles = makeStyles((theme) => ({
     
-    background: {
-        minHeight: '100vh',
-        backgroundImage: `url(${process.env.PUBLIC_URL + "assets/starry_sky.jpg"})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover', 
-      }, 
-     
-
     root: {
         display: 'flex',
         justifyContent: 'center',
@@ -64,10 +53,6 @@ const useStyles = makeStyles((theme) => ({
     title: {
         color: '#fff',
         fontSize: '4.5rem',
-    },
-    goDown: {
-        color: '#9999FF',
-        fontSize: '3em'
     },
 }));
 
@@ -103,9 +88,6 @@ function Greeting() {
                         Find fellow <br /> {''}
                         <span className={classes.colorText}>{randNames}!</span>
                     </h1>
-                    <IconButton>
-                        <ExpandMoreIcon className={classes.goDown} />
-                    </IconButton>
                 </div>
             </Collapse>
         </div>
