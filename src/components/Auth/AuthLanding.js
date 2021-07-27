@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import AuthMVP from "./AuthMVP";
-import Greeting from "../site/Greeting";
 
 const AuthLanding = (props) => {
 
@@ -14,7 +13,6 @@ const AuthLanding = (props) => {
 
     return(
         <div>
-            <Greeting />
             <AuthMVP updateToken={props.updateToken}/>
         </div>
     )

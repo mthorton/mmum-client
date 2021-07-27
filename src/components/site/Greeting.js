@@ -28,15 +28,14 @@ ElevationScroll.propTypes = {
 };
 
 const useStyles = makeStyles((theme) => ({
-   
-    /* This was the height 
+    
     background: {
         minHeight: '100vh',
         backgroundImage: `url(${process.env.PUBLIC_URL + "assets/starry_sky.jpg"})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover', 
       }, 
-      */
+     
 
     root: {
         display: 'flex',

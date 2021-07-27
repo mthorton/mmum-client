@@ -13,6 +13,10 @@ import {
     Button,
     Nav,
 } from 'reactstrap';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
+import EventIcon from '@material-ui/icons/Event';
 
 const NavBar = (props) => {
 
@@ -31,9 +35,9 @@ const NavBar = (props) => {
                 <Nav className="ml" navbar>
                     <NavItem className='nav-links'>
                         <ul >
-                            <li><Link to='/eventfeed'>Home</Link></li>
-                            <li><Link to='/createevent'>Create Event</Link></li>
-                            <li><Link to='/profile'>Profile</Link></li>
+                            <li><Link to='/eventfeed'><HomeIcon/></Link></li>
+                            <li><Link to='/createevent'><EventIcon/></Link></li>
+                            <li><Link to='/profile'><AccountCircleIcon/></Link></li>
                         </ul>
                     </NavItem>
             <NavbarBrand className='nav-title' href="/"><h1>Meet Me Under the Moon.</h1></NavbarBrand>
@@ -45,7 +49,7 @@ const NavBar = (props) => {
                      </Switch> */}
                     </NavItem>
                     <NavItem>
-                        <Button className='nav-button' onClick={props.clickLogout} href='/'>Logout</Button>
+                        <Button className='nav-button' onClick={props.clickLogout} href='/'><ExitToAppIcon/></Button>
                     </NavItem>
                     
                 </Nav>

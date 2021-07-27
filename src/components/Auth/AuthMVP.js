@@ -148,6 +148,7 @@ const Login = (props) => {
     }
     
     return (
+   
         <div>
             <h1>Login</h1>
             <Form onSubmit={handleSubmit}>
@@ -185,8 +186,9 @@ const useStyles = makeStyles((theme) => ({
         setChecked(true);
     }, [])
     return(
+        <div>
+        <Greeting />
         <Container className={classes.root}>
-            
             <Row>
                 <Col md="6">
                     <Signup updateToken={props.updateToken} />
@@ -196,5 +198,6 @@ const useStyles = makeStyles((theme) => ({
                 </Col>
             </Row>
         </Container>
+        </div>
     )
 }
