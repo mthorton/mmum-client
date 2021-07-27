@@ -2,10 +2,10 @@ import {Redirect, Route, Switch} from 'react-router-dom';
 //import { Container, Row, Col } from 'reactstrap';
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-
 import EventIndex from './EventIndex';
 import Profile from './Profile';
 import EventFeed from '../../events/EventFeed';
+
 
 import NavBar from './Navbar';
 //import AuthMVP from '../Auth/AuthMVP';
@@ -45,3 +45,8 @@ const Home = (props) => {
 };
 
 export default Home;
+
+ /* <IconButton>
+                        <ExpandMoreIcon className={classes.goDown} />
+                    </IconButton>
+                    */
