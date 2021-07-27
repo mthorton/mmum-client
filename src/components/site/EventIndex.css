@@ -1,3 +1,48 @@
 .create-event {
     padding-top: 20%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mine-header {
+    font-size: 46px;
+    color: #9999FF;
+}
+
+.create-button {
+    color: #9999FF;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.create-button:hover {
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+
+.create-header {
+    font-size: 46px;
+    color: #9999FF;
+}
+
+.create-form label{
+    color: #9999FF;
+}
+
+.create-form input{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sub-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 10%;
+    height: 60px;
+    width: 200px;
+    color: #9999FF;
+
+}
+
+.sub-button:hover {
+    font-weight: bold;
+    background-color: black;
+    color: white;
 }

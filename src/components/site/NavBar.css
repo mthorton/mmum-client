@@ -5,20 +5,28 @@
     width: 100%;
     background-color: rgb(46, 59, 85);
     position: fixed;
+    z-index: 10;
 }
 
 .nav-links li{
     display: inline;
     padding-left: 20px;
     padding-right: 20px;
+    font-size: 26px;
 }
 
 .nav-title h1 {
-    padding-left: 100px;
+    padding-left: 160px;
     color: #9999FF;
     font-family: Pacifico;
 }
 
 .nav-button {
-    margin-left: 150%;
+    margin-left: 180px;
+    background-color: black;
+    color: #9999FF;
+}
+
+.nav-link link{
+    text-decoration: none;
 }

@@ -15,7 +15,7 @@ const EventCreate = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         //fetch(`${APIURL}/log/`, {
-        fetch(`http://localhost:3000/log/create/`, {  
+        fetch(`http://localhost:3000/log/create`, {  
             method: 'POST',
             body: JSON.stringify({log: {date: date, title: title, location: location, description: description}}),
             headers: new Headers({
@@ -35,8 +35,8 @@ const EventCreate = (props) => {
 
     return(
         <>
-            <h3>Create an Event</h3>
-            <Form onSubmit={handleSubmit}>
+            <h3 className='create-header'>Create an Event</h3>
+            <Form className='create-form' onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="dateString">Date: </Label>
                     <Input type="dateString" value={date} onChange={(e) => setDate(e.target.value)}/>
@@ -53,7 +53,7 @@ const EventCreate = (props) => {
                     <Label htmlFor="description">Description: </Label>
                     <Input name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
                 </FormGroup>
-                <Button type="submit">Add Event</Button>
+                <Button className='sub-button' type="submit">Add Event</Button>
             </Form>
         </>
     );
