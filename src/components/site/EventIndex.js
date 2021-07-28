@@ -4,7 +4,7 @@ import EventCreate from '../../events/EventCreate';
 import EventTable from '../../events/EventTable';
 import EventEdit from '../../events/EventEdit';
 import './EventIndex.css';
-//import APIURL from '../../helpers/environment';
+import APIURL from '../../helpers/environment';
 
 const EventIndex = (props) => {
     const [events, setEvents] = useState([]);
@@ -12,9 +12,9 @@ const EventIndex = (props) => {
     const [eventToUpdate, setEventToUpdate] = useState({});
 
     const fetchEvents = () => {
-        //fetch(`${APIURL}/log`, {
+        fetch(`${APIURL}/log`, {
         //${event.id}
-        fetch(`http://localhost:3000/log/mine`, {  
+        // fetch(`http://localhost:3000/log/mine`, {  
         method: "GET",
         headers: new Headers({
             'Content-Type': 'application/json',
