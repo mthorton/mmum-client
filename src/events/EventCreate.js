@@ -14,7 +14,7 @@ const EventCreate = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`${APIURL}/log/`, {
+        fetch(`${APIURL}/log/create`, {
         // fetch(`http://localhost:3000/log/create`, {  
             method: 'POST',
             body: JSON.stringify({log: {date: date, title: title, location: location, description: description}}),

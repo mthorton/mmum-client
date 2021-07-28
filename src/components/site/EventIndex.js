@@ -12,8 +12,7 @@ const EventIndex = (props) => {
     const [eventToUpdate, setEventToUpdate] = useState({});
 
     const fetchEvents = () => {
-        fetch(`${APIURL}/log`, {
-        //${event.id}
+        fetch(`${APIURL}/log/mine`, {
         // fetch(`http://localhost:3000/log/mine`, {  
         method: "GET",
         headers: new Headers({
