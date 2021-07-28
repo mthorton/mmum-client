@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Col, Container, Form, FormGroup, Label, Input, Row } from 'reactstrap';
-import { CssBaseline } from '@material-ui/core';
 import Greeting from '../site/Greeting';
 import APIURL from '../../helpers/environment';
 
@@ -11,8 +10,8 @@ const Signup = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        //fetch(`${APIURL}/user/register`, {
-        fetch('http://localhost:3000/user/register', {    
+        fetch(`${APIURL}/user/register`, {
+        // fetch('http://localhost:3000/user/register', {    
             method: 'POST', 
             body: JSON.stringify({user:{username: username, password: password}}),
             headers: new Headers({
@@ -51,8 +50,8 @@ const Login = (props) => {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        //fetch(`${APIURL}/user/login`, {
-        fetch('http://localhost:3000/user/login', {
+        fetch(`${APIURL}/user/login`, {
+        // fetch('http://localhost:3000/user/login', {
             method: 'POST', 
             body: JSON.stringify({user:{username: username, password: password}}),
             headers: new Headers({
