@@ -7,8 +7,6 @@ function NasaAPI(){
 
     const [apod, setApod] = useState([]);
 
-    let image = apod.image
-
     // NASA picture of the day. 
     const getApod = () => {
         fetch(url + apiKey)
@@ -16,15 +14,19 @@ function NasaAPI(){
         .then(json => {
             console.log(json);
             setApod(json);
+            showImage(json);
         })
+    }
+
+    const showImage = (apod) => {
+        return <img src={apod.image} />
     }
     
 
     return(
         <div>
-            <button onClick={getApod}>NASA APOD</button>
-            {/* {getApod()} */}
-            <img src={image} />
+            {/* {getApod()}
+            <showImage/> */}
         </div>
     )
 }

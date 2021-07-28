@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import EventCreate from './EventCreate';
-import EventTable from './EventTable';
-import EventEdit from './EventEdit';
-import APIURL from '../helpers/environment';
+import EventCreate from '../../events/EventCreate';
+import EventTable from '../../events/EventTable';
+import EventEdit from '../../events/EventEdit';
+import './EventIndex.css';
+//import APIURL from '../../helpers/environment';
 
 const EventIndex = (props) => {
     const [events, setEvents] = useState([]);
@@ -11,10 +12,12 @@ const EventIndex = (props) => {
     const [eventToUpdate, setEventToUpdate] = useState({});
 
     const fetchEvents = () => {
-        fetch(`${APIURL}/log/all`, {
+        //fetch(`${APIURL}/log`, {
+        //${event.id}
+        fetch(`http://localhost:3000/log/mine`, {  
         method: "GET",
         headers: new Headers({
-            'Content-Type': "application/json",
+            'Content-Type': 'application/json',
             'Authorization': `Bearer ${props.token}`
         })
     }).then((res) => res.json())
@@ -41,15 +44,15 @@ const EventIndex = (props) => {
     }, []);
 
     return(
-        <Container>
+        <Container className='create-event'>
             <Row>
-                
-                <Col md='12'>
-                    <EventTable events={events} editUpdateEvent={editUpdateEvent} 
-                    updateOn={updateOn} fetchEvents={fetchEvents} token={props.token}/>
+            <Col md="9">
+                    <EventTable events={events} editUpdateEvent={editUpdateEvent} updateOn={updateOn} fetchEvents={fetchEvents} token={props.token} />
                 </Col>
-                {updateActive ? <EventEdit eventToUpdate={eventToUpdate}
-                updateOff={updateOff} token={props.token} fetchEvents={fetchEvents}/> : <></>}
+                <Col md="3">
+                    <EventCreate fetchEvents={fetchEvents} token={props.token}/>
+                </Col>
+                {updateActive ? <EventEdit eventToUpdate={eventToUpdate} updateOff={updateOff} token={props.token} fetchEvents={fetchEvents}/> : <></>}
             </Row>
         </Container>
     )

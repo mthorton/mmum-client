@@ -1,0 +1,5 @@
+.home-page {
+    background-image: url('/src/assets/Moon2.png');
+    background-size: cover;
+    height: 100%;
+}

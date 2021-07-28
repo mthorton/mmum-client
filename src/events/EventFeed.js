@@ -1,42 +1,60 @@
-import React from 'react';
-import { Table } from 'reactstrap'; // forgot single quotes
+import React, { useState, useEffect } from 'react';
+import { Container, Row, Col } from 'reactstrap';
+import EventFeedTable from './EventFeedTable';
+import EventEdit from './EventEdit';
+import NasaAPI from '../components/APIs/NasaAPI';
+import './EventFeed.css';
+import APIURL from '../helpers/environment';
 
 const EventFeed = (props) => {
+    const [events, setEvents] = useState([]);
+    const [updateActive, setUpdateActive] = useState(false);
+    const [eventToUpdate, setEventToUpdate] = useState({});
 
-    const eventMapper = () => {
-        return props.events.map((event, index) => {
-            return(
-                <tr key={index}>
-                    <th scope="row">{event.id}</th>
-                    <td>{event.date}</td>
-                    <td>{event.title}</td>
-                    <td>{event.location}</td>
-                    <td>{event.description}</td>
-                </tr>
-            )
+    const fetchEvents = () => {
+        fetch(`${APIURL}/log/all`, {
+        // fetch('http://localhost:3000/log/all', {  
+        method: "GET",
+        headers: new Headers({
+            'Content-Type': "application/json",
+            'Authorization': `Bearer ${props.token}`
         })
+    }).then((res) => res.json())
+    .then((logData) => {
+        setEvents(logData);
+    })
+    };
+
+    const editUpdateEvent = (event) => {
+        setEventToUpdate(event);
+        console.log(event);
     }
 
+    const updateOn = () => {
+        setUpdateActive(true);
+    }
+
+    const updateOff = () => {
+        setUpdateActive(false);
+    }
+
+    useEffect(() => {
+        fetchEvents();
+    }, []);
+
     return(
-        <>
-        <h3>Event Feed</h3>
-        <hr/>
-        <Table striped>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                {eventMapper()}
-            </tbody>
-        </Table>
-        </>
+        <Container className='event-feed'>
+            <NasaAPI/>
+            <Row>
+                <Col md='12'>
+                    <EventFeedTable events={events} editUpdateEvent={editUpdateEvent} 
+                    updateOn={updateOn} fetchEvents={fetchEvents} token={props.token}/>
+                </Col>
+                {updateActive ? <EventEdit eventToUpdate={eventToUpdate}
+                updateOff={updateOff} token={props.token} fetchEvents={fetchEvents}/> : <></>}
+            </Row>
+        </Container>
     )
-}
+};
 
 export default EventFeed;

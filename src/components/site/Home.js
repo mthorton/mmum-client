@@ -1,31 +1,52 @@
-import {Link} from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
+import {Redirect, Route, Switch} from 'react-router-dom';
+//import { Container, Row, Col } from 'reactstrap';
 import React, { useState, useEffect } from 'react';
-
-import EventIndex from '../../events/EventIndex';
+import './Home.css';
+import EventIndex from './EventIndex';
+import Profile from './Profile';
 import EventFeed from '../../events/EventFeed';
-import NasaAPI from '../APIs/NasaAPI';
-import MoonCalcAPI from '../APIs/MoonCalcAPI';
+
+
+import NavBar from './Navbar';
+//import AuthMVP from '../Auth/AuthMVP';
 
 const Home = (props) => {
 
-    const [events, setEvents] = useState([]);
-    const [updateActive, setUpdateActive] = useState(false);
-    const [eventToUpdate, setEventToUpdate] = useState({});
+    // const [events, setEvents] = useState([]);
+    // const [updateActive, setUpdateActive] = useState(false);
+    // const [eventToUpdate, setEventToUpdate] = useState({});
+
+    const [sessionToken, setSessionToken] = useState('');
+
+  useEffect(() => {
+    if (localStorage.getItem('token')){
+      setSessionToken(localStorage.getItem('token'));
+    }
+  }, [])
+
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken('');
+  }
 
     return(
-        <div className='main'>
-            <div className='mainDiv'>
-                <h1>Meet Me Under the Moon</h1>
-                <ul>
-                    <li>
-                        {/* <MoonCalcAPI/> */}
-                        <EventIndex />
-                    </li>
-                </ul>
-            </div>
+        <div className='home-page'>
+            <NavBar clickLogout={clearToken}/>
+            
+            <Switch>
+                <Route exact path='/' component={() => (<Redirect to='/eventfeed' />)} />
+                <Route exact path='/eventfeed'><EventFeed /></Route>
+                <Route exact path='/createevent'><EventIndex token={props.token} /></Route>
+                <Route exact path='/profile'><Profile /></Route>
+            </Switch>
+            
         </div>
     );
 };
 
 export default Home;
+
+ /* <IconButton>
+                        <ExpandMoreIcon className={classes.goDown} />
+                    </IconButton>
+                    */

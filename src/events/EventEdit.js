@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import APIURL from '../helpers/environment';
+//import APIURL from '../helpers/environment';
 
-const EventEdit = props => {
+const EventEdit = (props) => {
     const [editDate, setEditDate] = useState(props.eventToUpdate.date);
     const [editTitle, setEditTitle] = useState(props.eventToUpdate.title);
     const [editLocation, setEditLocation] = useState(props.eventToUpdate.location);
@@ -10,17 +10,22 @@ const EventEdit = props => {
 
     const eventUpdate = (event, index) => {  // Look into this more // changed 2nd event to index.
         event.preventDefault();
-        fetch(`${APIURL}/log/${props.eventToUpdate.id}`, {
+        //fetch(`${APIURL}/log/${props.eventToUpdate.id}`, {
+        fetch(`http://localhost:3000/log/update/${props.eventToUpdate.id}`, {  
             method: 'PUT',
-            body: JSON.stringify({log: {date: editDate, title: editTitle, location: editLocation, description: editDescription}}),
+            body: JSON.stringify({log: {title: editTitle, description: editDescription, date: editDate, location: editLocation}}),
             headers: new Headers({
                 'Content-Type': 'application/json',
-                'Authorization': props.token
+                //'Authorization': props.token
+                'Authorization' : `Bearer ${props.token}`
             })
         }) .then((res) => {
             props.fetchEvents();
             props.updateOff();
-        })
+        }) .catch(function(error) {
+            console.log('Error with fetch: ' + error.message);
+            throw error;
+        });
     }
 
     return(
@@ -29,7 +34,7 @@ const EventEdit = props => {
             <ModalBody>
                 <Form onSubmit={eventUpdate}>
                 <FormGroup>
-                    <Label htmlFor="date">Edit Date: </Label>
+                    <Label htmlFor="datetime">Edit Date: </Label>
                     <Input type="datetime" value={editDate} onChange={(e) => setEditDate(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>

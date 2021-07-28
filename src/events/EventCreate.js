@@ -3,20 +3,21 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import APIURL from '../helpers/environment';
 
 const EventCreate = (props) => {
-    const [title, setTitle] = useState('');
     const [date, setDate] = useState('');
+    const [title, setTitle] = useState('');
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
 
-    useEffect(() => {
-        handleSubmit();
-    }, []);
+    // useEffect(() => {
+    //     handleSubmit();
+    // }, []);
 
     const handleSubmit = (e) => {
-        //e.preventDefault();
+        e.preventDefault();
         fetch(`${APIURL}/log/`, {
+        // fetch(`http://localhost:3000/log/create`, {  
             method: 'POST',
-            body: JSON.stringify({log: {title: title, date: date, location: location, description: description}}),
+            body: JSON.stringify({log: {date: date, title: title, location: location, description: description}}),
             headers: new Headers({
                 'Content-Type' : 'application/json',
                 'Authorization' : `Bearer ${props.token}`
@@ -24,8 +25,8 @@ const EventCreate = (props) => {
         }).then((res) => res.json())
         .then((logData) => {
             console.log(logData);
-            setTitle('');
             setDate('');
+            setTitle('');
             setLocation('');
             setDescription('');
             props.fetchEvents();
@@ -34,25 +35,25 @@ const EventCreate = (props) => {
 
     return(
         <>
-            <h3>Create an Event</h3>
-            <Form onSubmit={handleSubmit}>
+            <h3 className='create-header'>Create an Event</h3>
+            <Form className='create-form' onSubmit={handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="title"/>
+                    <Label htmlFor="dateString">Date: </Label>
+                    <Input type="dateString" value={date} onChange={(e) => setDate(e.target.value)}/>
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="title">Event Title: </Label>
                     <Input name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="date"/>
-                    <Input type="datetime" value={date} onChange={(e) => setDate(e.target.value)}/>
-                </FormGroup>
-                <FormGroup>
-                    <Label htmlFor="location"/>
+                    <Label htmlFor="location">Location: </Label>
                     <Input name="location" value={location} onChange={(e) => setLocation(e.target.value)}/>
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="description"/>
+                    <Label htmlFor="description">Description: </Label>
                     <Input name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
                 </FormGroup>
-                <Button type='submit'>Add Event</Button>
+                <Button className='sub-button' type="submit">Add Event</Button>
             </Form>
         </>
     );
