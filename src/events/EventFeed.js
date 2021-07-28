@@ -4,7 +4,7 @@ import EventFeedTable from './EventFeedTable';
 import EventEdit from './EventEdit';
 import NasaAPI from '../components/APIs/NasaAPI';
 import './EventFeed.css';
-//import APIURL from '../helpers/environment';
+import APIURL from '../helpers/environment';
 
 const EventFeed = (props) => {
     const [events, setEvents] = useState([]);
@@ -12,8 +12,8 @@ const EventFeed = (props) => {
     const [eventToUpdate, setEventToUpdate] = useState({});
 
     const fetchEvents = () => {
-        //fetch(`${APIURL}/log/all`, {
-        fetch('http://localhost:3000/log/all', {  
+        fetch(`${APIURL}/log/all`, {
+        // fetch('http://localhost:3000/log/all', {  
         method: "GET",
         headers: new Headers({
             'Content-Type': "application/json",
